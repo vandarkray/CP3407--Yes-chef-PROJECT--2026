@@ -1,0 +1,47 @@
+To Do list
+--------------------------------------------------------------
+1.Restaurant & Menu Browsing:
+
+ Display list of available restaurants
+
+ Show detailed restaurant menus (dish name, price, description)
+----------------------------------------------------------------
+2.AI Recommendation Features:
+
+ Collect user order history and behavior data
+
+ Allow users to set food preferences (cuisine, spice level, budget)
+
+ Implement AI-based dish recommendation logic
+
+ Display personalized recommended dishes to users
+----------------------------------------------------------------
+3.Ordering Process
+
+ Add selected dishes to shopping cart
+
+ Review and manage items in shopping cart
+
+ Place and confirm food orders
+------------------------------------------------------------------
+4.Ordering Process
+
+ Add selected dishes to shopping cart
+
+ Review and manage items in shopping cart
+
+ Place and confirm food orders
+------------------------------------------------------------------
+5.Order Tracking & History
+
+ View current order status
+
+ View past order history
+------------------------------------------------------------------
+6.Feedback & Administration
+
+ Allow users to rate and review completed orders
+
+ Enable admin to add, update, and delete menu items
+------------------------------------------------------------------
+
