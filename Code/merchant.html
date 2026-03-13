@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Ordering System · Merchant Center</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="merchant">
+    <div class="container">
+        <header class="header">
+            <div class="header-top">
+                <div class="brand">
+                    <div class="brand-logo-real"></div>
+                    <div class="brand-text">
+                        <h1>Smart Ordering System</h1>
+                        <p>Merchant Operations Hub · Real-Time Dashboard</p>
+                    </div>
+                </div>
+                <nav class="main-nav">
+                    <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link" href="order.html">Order</a>
+                    <a class="nav-link" href="orders.html">My Orders</a>
+                    <a class="nav-link" href="login.html">Account</a>
+                    <a class="nav-link active" href="merchant.html">Merchant</a>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section class="merchant-header">
+                <div>
+                    <h2>Merchant Operations Center</h2>
+                    <p class="merchant-subtitle">Monitor store performance in real-time, manage dishes & orders, and review AI recommendation effectiveness (frontend demo).</p>
+                </div>
+                <button class="secondary-btn" id="mockLoginMerchantBtn">Demo Merchant Login / Logout</button>
+            </section>
+
+            <section class="merchant-grid">
+                <!-- Data Overview -->
+                <section class="merchant-card">
+                    <h3>📊 Today's Overview</h3>
+                    <div class="merchant-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Today's Orders</span>
+                            <span class="stat-value" id="merchantTodayOrders">128</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Today's Revenue</span>
+                            <span class="stat-value" id="merchantTodayRevenue">¥4,386.00</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Avg. Order Value</span>
+                            <span class="stat-value" id="merchantAvgOrder">¥34.29</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">AI Rec. Click Rate</span>
+                            <span class="stat-value" id="merchantAiClickRate">72%</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Top Sellers -->
+                <section class="merchant-card">
+                    <h3>🔥 Top Selling Dishes</h3>
+                    <table class="merchant-table" id="merchantHotTable">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Dish</th>
+                                <th>Sales</th>
+                                <th>Rating</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- JS populates -->
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- Menu Management -->
+                <section class="merchant-card merchant-card-full">
+                    <h3>🍽️ Menu Management</h3>
+                    <div class="merchant-menu-tools">
+                        <input type="text" id="merchantSearch" placeholder="Search dish name or category...">
+                    </div>
+
+                    <!-- Add New Dish Form -->
+                    <details class="add-dish-details">
+                        <summary class="add-dish-summary">➕ Add New Dish</summary>
+                        <form id="addDishForm" class="merchant-add-form">
+                            <div class="merchant-add-row">
+                                <div class="merchant-add-group">
+                                    <label for="dishName">Dish Name</label>
+                                    <input type="text" id="dishName" placeholder="e.g. Signature Beef Noodles" required>
+                                </div>
+                                <div class="merchant-add-group">
+                                    <label for="dishCategory">Category</label>
+                                    <select id="dishCategory" required>
+                                        <option value="Mains">Mains</option>
+                                        <option value="Sides">Sides</option>
+                                        <option value="Drinks">Drinks</option>
+                                        <option value="Desserts">Desserts</option>
+                                    </select>
+                                </div>
+                                <div class="merchant-add-group">
+                                    <label for="dishPrice">Price (¥)</label>
+                                    <input type="number" id="dishPrice" min="1" step="0.5" placeholder="e.g. 32" required>
+                                </div>
+                            </div>
+                            <div class="merchant-add-row">
+                                <div class="merchant-add-group merchant-add-group-wide">
+                                    <label for="dishDesc">Dish Description</label>
+                                    <input type="text" id="dishDesc" placeholder="e.g. Tender beef with refreshing broth" required>
+                                </div>
+                            </div>
+                            <div class="merchant-add-row">
+                                <div class="merchant-add-group merchant-add-group-wide">
+                                    <label for="dishImage">Image URL (optional)</label>
+                                    <input type="url" id="dishImage" placeholder="e.g. https://.../beef-noodle.jpg">
+                                </div>
+                            </div>
+                            <div class="merchant-add-row">
+                                <div class="merchant-add-group merchant-add-group-wide">
+                                    <label for="dishTags">Tags (comma or space separated)</label>
+                                    <input type="text" id="dishTags" placeholder="e.g. beef hearty signature mild">
+                                </div>
+                            </div>
+                            <div class="merchant-add-actions">
+                                <span class="merchant-add-tip">Note: This is a frontend demo. New dishes will appear immediately on the ordering page and in AI recommendations, but won't persist after page refresh.</span>
+                                <button type="submit" class="primary-btn">Add Dish</button>
+                            </div>
+                        </form>
+                    </details>
+
+                    <!-- Dish List (with edit/delete) -->
+                    <div class="merchant-menu-list" id="merchantMenuList">
+                        <!-- JS renders current menuData -->
+                    </div>
+                </section>
+            </section>
+        </main>
+    </div>
+
+    <!-- Edit Dish Modal -->
+    <div id="editDishModal" class="modal-overlay" style="display:none">
+        <div class="modal-card modal-card-lg">
+            <div class="modal-header">
+                <h3>Edit Dish</h3>
+                <button class="modal-close-btn" onclick="closeEditModal()">✕</button>
+            </div>
+            <form id="editDishForm" class="merchant-add-form" style="border:none;padding-top:0;margin:0;">
+                <div class="merchant-add-row">
+                    <div class="merchant-add-group">
+                        <label for="editDishName">Dish Name</label>
+                        <input type="text" id="editDishName" required>
+                    </div>
+                    <div class="merchant-add-group">
+                        <label for="editDishCategory">Category</label>
+                        <select id="editDishCategory" required>
+                            <option value="Mains">Mains</option>
+                            <option value="Sides">Sides</option>
+                            <option value="Drinks">Drinks</option>
+                            <option value="Desserts">Desserts</option>
+                        </select>
+                    </div>
+                    <div class="merchant-add-group">
+                        <label for="editDishPrice">Price (¥)</label>
+                        <input type="number" id="editDishPrice" min="1" step="0.5" required>
+                    </div>
+                </div>
+                <div class="merchant-add-row">
+                    <div class="merchant-add-group merchant-add-group-wide">
+                        <label for="editDishDesc">Description</label>
+                        <input type="text" id="editDishDesc" required>
+                    </div>
+                </div>
+                <div class="merchant-add-row">
+                    <div class="merchant-add-group merchant-add-group-wide">
+                        <label for="editDishImage">Image URL</label>
+                        <input type="url" id="editDishImage">
+                    </div>
+                </div>
+                <div class="merchant-add-row">
+                    <div class="merchant-add-group merchant-add-group-wide">
+                        <label for="editDishTags">Tags (comma or space separated)</label>
+                        <input type="text" id="editDishTags">
+                    </div>
+                </div>
+                <div class="modal-actions" style="margin-top:12px;">
+                    <button type="button" class="secondary-btn" id="cancelEditBtn">Cancel</button>
+                    <button type="submit" class="primary-btn">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

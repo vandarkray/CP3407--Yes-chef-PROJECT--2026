@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Ordering System · Account</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="login">
+    <div class="container">
+        <header class="header">
+            <div class="header-top">
+                <div class="brand">
+                    <div class="brand-logo-real"></div>
+                    <div class="brand-text">
+                        <h1>Smart Ordering System</h1>
+                        <p>Member Center · Personalized Recommendations</p>
+                    </div>
+                </div>
+                <nav class="main-nav">
+                    <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link" href="order.html">Order</a>
+                    <a class="nav-link" href="orders.html">My Orders</a>
+                    <a class="nav-link active" href="login.html">Account</a>
+                    <a class="nav-link" href="merchant.html">Merchant</a>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <!-- Login / Register (shown when not logged in) -->
+            <section id="loginSection" class="auth-section">
+                <div class="auth-card">
+                    <h2>Login / Register</h2>
+                    <p class="auth-subtitle">Log in to save your favorite dishes, taste preferences, and receive more accurate AI recommendations.</p>
+                    <form id="loginForm" class="auth-form">
+                        <div class="form-group">
+                            <label for="loginPhone">Phone Number</label>
+                            <input type="tel" id="loginPhone" placeholder="Enter your phone number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                        </div>
+                        <div class="form-row">
+                            <label class="remember-me">
+                                <input type="checkbox" id="rememberMe">
+                                Remember me
+                            </label>
+                            <button type="button" class="link-btn" id="forgotPasswordBtn">Forgot password?</button>
+                        </div>
+                        <button type="submit" class="primary-btn full-width">Login</button>
+                        <button type="button" id="registerBtn" class="secondary-btn full-width">Quick Register</button>
+                    </form>
+                    <div class="auth-tip">This is a frontend demo — login data is saved locally in your browser only, not uploaded to any server.</div>
+                </div>
+                <div class="auth-benefits">
+                    <h3>Member Benefits</h3>
+                    <ul>
+                        <li>🎂 Exclusive birthday coupons & seasonal offers</li>
+                        <li>🧠 System remembers your preferences — AI knows you better</li>
+                        <li>🎁 Earn points to redeem drinks, desserts & more</li>
+                        <li>⚡ Priority service during peak hours</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- User Profile (shown when logged in) -->
+            <section id="profileSection" class="profile-section" style="display:none">
+                <!-- User Info Card -->
+                <div class="profile-card">
+                    <div class="profile-avatar">👤</div>
+                    <div class="profile-info">
+                        <h2 id="profileName">User</h2>
+                        <p>Phone: <span id="profilePhone">-</span></p>
+                        <p>Joined: <span id="profileJoinDate">-</span></p>
+                        <p>Total Orders: <span id="profileOrderCount">0</span></p>
+                    </div>
+                    <div class="profile-actions">
+                        <a href="orders.html" class="secondary-btn">My Orders</a>
+                        <button class="link-btn" id="logoutBtn" style="color:#ef4444;">Logout</button>
+                    </div>
+                </div>
+
+                <!-- Preferences -->
+                <div class="preference-card">
+                    <h3>Taste Preferences</h3>
+                    <p class="pref-subtitle">Set your dietary preferences for more accurate personalized AI recommendations.</p>
+
+                    <div class="pref-group">
+                        <label class="pref-label">Preferred Cuisines (multiple):</label>
+                        <div class="pref-checkbox-grid">
+                            <label><input type="checkbox" class="pref-cuisine-checkbox" value="Sichuan"> Sichuan</label>
+                            <label><input type="checkbox" class="pref-cuisine-checkbox" value="Cantonese"> Cantonese</label>
+                            <label><input type="checkbox" class="pref-cuisine-checkbox" value="Jiangnan"> Jiangnan</label>
+                            <label><input type="checkbox" class="pref-cuisine-checkbox" value="Korean"> Korean</label>
+                            <label><input type="checkbox" class="pref-cuisine-checkbox" value="Japanese"> Japanese</label>
+                            <label><input type="checkbox" class="pref-cuisine-checkbox" value="Western"> Western</label>
+                            <label><input type="checkbox" class="pref-cuisine-checkbox" value="Light"> Light</label>
+                            <label><input type="checkbox" class="pref-cuisine-checkbox" value="Sweet"> Sweet</label>
+                        </div>
+                    </div>
+
+                    <div class="pref-group">
+                        <label class="pref-label" for="prefSpice">Spice Preference:</label>
+                        <select id="prefSpice" class="pref-select">
+                            <option value="Any">Any</option>
+                            <option value="Not Spicy">Not Spicy</option>
+                            <option value="Mild">Mild</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Extra Spicy">Extra Spicy</option>
+                        </select>
+                    </div>
+
+                    <div class="pref-group">
+                        <label class="pref-label">Budget Range (¥):</label>
+                        <div class="pref-budget-row">
+                            <input type="number" id="prefBudgetMin" min="0" max="500" placeholder="Min" class="pref-input">
+                            <span>—</span>
+                            <input type="number" id="prefBudgetMax" min="0" max="500" placeholder="Max" class="pref-input">
+                        </div>
+                    </div>
+
+                    <div class="pref-group">
+                        <label class="pref-label" for="prefAllergens">Allergens / Restrictions (optional):</label>
+                        <input type="text" id="prefAllergens" class="pref-input-wide" placeholder="e.g. peanuts, seafood, lactose">
+                    </div>
+
+                    <button class="primary-btn" id="savePrefsBtn">Save Preferences</button>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="profile-quick-links">
+                    <a href="order.html" class="quick-link-card">
+                        <span class="quick-link-icon">🍜</span>
+                        <span>Order Food</span>
+                    </a>
+                    <a href="orders.html" class="quick-link-card">
+                        <span class="quick-link-icon">📋</span>
+                        <span>Order History</span>
+                    </a>
+                    <a href="orders.html" class="quick-link-card">
+                        <span class="quick-link-icon">⭐</span>
+                        <span>My Reviews</span>
+                    </a>
+                    <a href="index.html" class="quick-link-card">
+                        <span class="quick-link-icon">🏠</span>
+                        <span>Back to Home</span>
+                    </a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

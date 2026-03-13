@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Ordering System · Order Food</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="order">
+    <div class="container">
+        <header class="header">
+            <div class="header-top">
+                <div class="brand">
+                    <div class="brand-logo-real"></div>
+                    <div class="brand-text">
+                        <h1>Smart Ordering System</h1>
+                        <p>AI Search & Recommendations · Online Ordering</p>
+                    </div>
+                </div>
+                <nav class="main-nav">
+                    <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link active" href="order.html">Order</a>
+                    <a class="nav-link" href="orders.html">My Orders</a>
+                    <a class="nav-link" href="login.html">Account</a>
+                    <a class="nav-link" href="merchant.html">Merchant</a>
+                </nav>
+            </div>
+
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="e.g. something mildly spicy with meat, under $40">
+                <button id="searchBtn">AI Search</button>
+            </div>
+            <div id="aiStatus" class="ai-status">AI Recommendation Engine: <span id="aiStatusText">Local smart recommendations (configure cloud AI in script.js)</span></div>
+            <div id="aiSuggestions" class="ai-suggestions"></div>
+        </header>
+
+        <main>
+            <!-- Restaurant Browsing -->
+            <section class="restaurant-section">
+                <div class="section-header">
+                    <h2>Nearby Restaurants</h2>
+                    <p class="section-subtitle">Discover restaurants near you, click to view their menus</p>
+                </div>
+                <div id="restaurantGrid" class="restaurant-grid">
+                    <!-- JS renders restaurant cards -->
+                </div>
+            </section>
+
+            <!-- Menu & Cart -->
+            <div class="main-content">
+                <section class="menu-section">
+                    <div class="menu-header">
+                        <h2>Order Online</h2>
+                        <p class="menu-subtitle">Multi-filter & AI smart recommendations. Click a dish to quickly add to cart.</p>
+                    </div>
+                    <div class="category-tabs">
+                        <button class="category-tab active" data-category="all">All</button>
+                        <button class="category-tab" data-category="Mains">Mains</button>
+                        <button class="category-tab" data-category="Sides">Sides</button>
+                        <button class="category-tab" data-category="Drinks">Drinks</button>
+                        <button class="category-tab" data-category="Desserts">Desserts</button>
+                    </div>
+                    <div id="menuGrid" class="menu-grid">
+                        <!-- JS renders dish cards -->
+                    </div>
+                </section>
+
+                <aside class="cart-section">
+                    <h2>Shopping Cart</h2>
+                    <div id="cartItems" class="cart-items">
+                        <p class="empty-cart">Your cart is empty</p>
+                    </div>
+                    <div class="cart-summary">
+                        <div class="total">
+                            <span>Total:</span>
+                            <span id="totalPrice">¥0.00</span>
+                        </div>
+                        <button id="checkoutBtn" class="checkout-btn" disabled>Checkout</button>
+                    </div>
+                </aside>
+            </div>
+        </main>
+    </div>
+
+    <!-- Order Confirmation Modal -->
+    <div id="orderConfirmModal" class="modal-overlay" style="display:none">
+        <div class="modal-card modal-card-lg">
+            <div class="modal-header">
+                <h3>Confirm Order</h3>
+                <button class="modal-close-btn" onclick="closeOrderConfirmModal()">✕</button>
+            </div>
+            <div class="confirm-order-body">
+                <p class="confirm-label">Order Details:</p>
+                <div id="confirmOrderItems" class="confirm-items-list">
+                    <!-- JS populates -->
+                </div>
+                <div class="confirm-total-row">
+                    <span>Order Total</span>
+                    <span class="confirm-total-price" id="confirmOrderTotal">¥0.00</span>
+                </div>
+                <p class="confirm-tip">After submission, you can track real-time status in "My Orders".</p>
+            </div>
+            <div class="modal-actions">
+                <button class="secondary-btn" id="cancelOrderBtn">Cancel</button>
+                <button class="primary-btn" id="confirmOrderBtn">Place Order</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

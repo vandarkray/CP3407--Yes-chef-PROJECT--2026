@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Ordering System · My Orders</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="orders">
+    <div class="container">
+        <header class="header">
+            <div class="header-top">
+                <div class="brand">
+                    <div class="brand-logo-real"></div>
+                    <div class="brand-text">
+                        <h1>Smart Ordering System</h1>
+                        <p>Order Tracking · History · Reviews</p>
+                    </div>
+                </div>
+                <nav class="main-nav">
+                    <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link" href="order.html">Order</a>
+                    <a class="nav-link active" href="orders.html">My Orders</a>
+                    <a class="nav-link" href="login.html">Account</a>
+                    <a class="nav-link" href="merchant.html">Merchant</a>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section class="orders-page-header">
+                <div>
+                    <h2>My Orders</h2>
+                    <p class="orders-subtitle">View current order progress, browse past orders, and rate completed orders.</p>
+                </div>
+                <button class="secondary-btn" onclick="renderOrders(document.querySelector('.orders-tab.active')?.dataset.filter||'all')">Refresh Status</button>
+            </section>
+
+            <div class="orders-tabs">
+                <button class="orders-tab active" data-filter="all">All Orders</button>
+                <button class="orders-tab" data-filter="pending">Pending</button>
+                <button class="orders-tab" data-filter="preparing">Preparing</button>
+                <button class="orders-tab" data-filter="delivering">Delivering</button>
+                <button class="orders-tab" data-filter="completed">Completed</button>
+            </div>
+
+            <div id="ordersList" class="orders-list">
+                <!-- JS renders order cards -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Review Modal -->
+    <div id="reviewModal" class="modal-overlay" style="display:none">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>Rate Order</h3>
+                <button class="modal-close-btn" onclick="closeReviewModal()">✕</button>
+            </div>
+            <div class="star-rating" id="starRating">
+                <span class="star" data-value="1">★</span>
+                <span class="star" data-value="2">★</span>
+                <span class="star" data-value="3">★</span>
+                <span class="star" data-value="4">★</span>
+                <span class="star" data-value="5">★</span>
+            </div>
+            <p class="rating-text" id="ratingText">Click a star to rate</p>
+            <textarea id="reviewText" class="review-textarea" placeholder="Share your dining experience (optional)..." rows="4"></textarea>
+            <div class="modal-actions">
+                <button class="secondary-btn" onclick="closeReviewModal()">Cancel</button>
+                <button class="primary-btn" onclick="submitReview()">Submit Review</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

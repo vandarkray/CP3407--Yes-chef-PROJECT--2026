@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Ordering System · Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="home">
+    <div class="container">
+        <header class="header">
+            <div class="header-top">
+                <div class="brand">
+                    <div class="brand-logo-real"></div>
+                    <div class="brand-text">
+                        <h1>Smart Ordering System</h1>
+                        <p>AI-Powered · Smart Recommendations · Commercial-Grade Online Ordering</p>
+                    </div>
+                </div>
+                <nav class="main-nav">
+                    <a class="nav-link active" href="index.html">Home</a>
+                    <a class="nav-link" href="order.html">Order</a>
+                    <a class="nav-link" href="orders.html">My Orders</a>
+                    <a class="nav-link" href="login.html">Account</a>
+                    <a class="nav-link" href="merchant.html">Merchant</a>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section class="home-hero">
+                <div class="home-hero-text">
+                    <h2>Professional AI Ordering Solution for Restaurants</h2>
+                    <p>Through natural language AI ordering, smart recommendations, and data-driven operations, every customer can find the perfect meal in seconds, and every merchant can monitor business performance in real time.</p>
+                    <div class="home-hero-actions">
+                        <a href="order.html" class="primary-btn">Start Ordering Now</a>
+                        <a href="merchant.html" class="secondary-btn">I'm a Merchant</a>
+                    </div>
+                    <ul class="home-highlights">
+                        <li>· Natural Language AI Ordering: Supports complex queries like "not too spicy, under $30"</li>
+                        <li>· Personalized Recommendations: Precise suggestions based on order history and taste preferences</li>
+                        <li>· Seamless integration with payment, delivery, and membership systems</li>
+                    </ul>
+                </div>
+                <div class="home-hero-stats">
+                    <div class="stat-card">
+                        <span class="stat-label">Today's Orders</span>
+                        <span class="stat-value" id="homeTodayOrders">128</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Satisfaction Rate</span>
+                        <span class="stat-value">98.6%</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">AI Recommendation CTR</span>
+                        <span class="stat-value">73%</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="home-recommend">
+                <h3>Best Sellers</h3>
+                <div id="homeRecommendGrid" class="home-recommend-grid">
+                    <!-- JS renders dish cards -->
+                </div>
+            </section>
+
+            <section class="home-quick-entry">
+                <h3>Quick Order by Scenario</h3>
+                <div class="home-quick-grid">
+                    <a href="order.html" class="quick-card">
+                        <div class="quick-card-title">🍱 Weekday Lunch</div>
+                        <p class="quick-card-desc">Under $30, great value, quick service — perfect for office lunches.</p>
+                        <span class="quick-chip">Try: Beef Noodles / Yangzhou Fried Rice</span>
+                    </a>
+                    <a href="order.html" class="quick-card">
+                        <div class="quick-card-title">🍻 Friends Gathering</div>
+                        <p class="quick-card-desc">Rich flavors, sharing platters — easy to split the bill.</p>
+                        <span class="quick-chip">Try: Kung Pao Chicken / Fried Wings / Popcorn Chicken</span>
+                    </a>
+                    <a href="order.html" class="quick-card">
+                        <div class="quick-card-title">🥗 Light & Healthy</div>
+                        <p class="quick-card-desc">Low oil, low salt, more veggies and seafood — great for fitness & clean eating.</p>
+                        <span class="quick-chip">Try: Steamed Sea Bass / Garlic Broccoli</span>
+                    </a>
+                    <a href="order.html" class="quick-card">
+                        <div class="quick-card-title">☕ Desserts & Afternoon Tea</div>
+                        <p class="quick-card-desc">Coffee, milk tea, pastries — perfect for meetings or chats.</p>
+                        <span class="quick-chip">Try: Americano / Tiramisu / Mango Pudding</span>
+                    </a>
+                </div>
+            </section>
+
+            <section class="home-how">
+                <h3>How It Works</h3>
+                <div class="home-how-steps">
+                    <div class="how-step">
+                        <div class="how-index">1</div>
+                        <div class="how-body">
+                            <div class="how-title">Describe What You Want</div>
+                            <p class="how-desc">For example, "something slightly spicy, budget around $40, for two people" — the system automatically understands your needs.</p>
+                        </div>
+                    </div>
+                    <div class="how-step">
+                        <div class="how-index">2</div>
+                        <div class="how-body">
+                            <div class="how-title">AI Recommends Dishes</div>
+                            <p class="how-desc">Based on your taste preferences, price range, and order history, the system provides personalized dish recommendations.</p>
+                        </div>
+                    </div>
+                    <div class="how-step">
+                        <div class="how-index">3</div>
+                        <div class="how-body">
+                            <div class="how-title">Add to Cart & Place Order</div>
+                            <p class="how-desc">After confirming your order, track its status in real-time. Rate your dishes afterwards to help AI continuously improve.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="home-reviews">
+                <h3>Feedback from Merchants & Customers</h3>
+                <div class="home-review-grid">
+                    <div class="review-card">
+                        <div class="review-title">"AI Recommendations Boosted Our Table Turnover"</div>
+                        <p class="review-content">After integrating the smart ordering system, average dish selection time dropped from 3 minutes to about 40 seconds. Peak-hour queues are noticeably shorter.</p>
+                        <div class="review-meta">— Sichuan Bistro, Store Manager</div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-title">"No More Decision Fatigue"</div>
+                        <p class="review-content">I just said "something light today, no spicy food" and the system suggested a perfect combo. Sometimes I even discover new dishes!</p>
+                        <div class="review-meta">— Mr. Zhou, Office Worker</div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-title">"More Efficient New Dish Testing"</div>
+                        <p class="review-content">New dishes can be strategically promoted to target audiences through AI recommendations. Combined with backend analytics, it's perfect for A/B testing.</p>
+                        <div class="review-meta">— Chain Restaurant Operations Director</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="home-partners">
+                <h3>Suitable for All Restaurant Types</h3>
+                <div class="partner-grid">
+                    <div class="partner-item">
+                        <div class="partner-tag">Chain Fast Food</div>
+                        <p>Standardized menu, unified recommendation strategy, multi-location management.</p>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-tag">Specialty Restaurants</div>
+                        <p>Highlight flavors & signature dishes, boost repeat visits and reputation through AI.</p>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-tag">Coffee / Dessert Shops</div>
+                        <p>Promote combo deals & time-based coupons to maximize off-peak utilization.</p>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-tag">Corporate Canteens</div>
+                        <p>Recommend based on dietary needs and nutrition, balancing health and cost.</p>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="home-footer">
+                <div class="footer-left">
+                    <div class="footer-brand">Smart Ordering System</div>
+                    <p>Providing practical AI ordering and business analytics solutions for small & medium restaurant brands.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="order.html">Online Ordering</a>
+                    <a href="orders.html">My Orders</a>
+                    <a href="merchant.html">Merchant Partnership</a>
+                    <a href="login.html">Member Center</a>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
